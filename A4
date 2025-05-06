@@ -1,0 +1,44 @@
+class Product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def add_stock(self, amount):
+        if amount > 0:
+            self.quantity += amount
+            return f"Added {amount} {self.name}. Total: {self.quantity}"
+        return "Invalid amount"
+
+    def sell(self, amount):
+        if 0 < amount <= self.quantity:
+            self.quantity -= amount
+            return f"Sold {amount} {self.name}. Remaining: {self.quantity}"
+        return "Can't sell that quantity"
+
+    def get_stock_value(self):
+        return self.price * self.quantity
+
+class DiscountedProduct(Product):
+    def __init__(self, name, price, quantity, category, discount=0):
+        super().__init__(name, price, quantity)
+        self.category = category
+        self.discount = discount  # Percentage discount
+
+    def get_stock_value(self):
+        original_value = super().get_stock_value()
+        return original_value * (1 - self.discount/100)
+
+# Create products
+laptop = Product("Laptop", 1000, 10)
+phone = DiscountedProduct("Phone", 500, 20, "Electronics", 10)
+shirt = DiscountedProduct("T-Shirt", 20, 50, "Clothing", 5)
+
+# Stock operations
+print(laptop.add_stock(5))
+print(phone.sell(3))
+print(shirt.sell(10))
+
+# Calculate total inventory value
+total_value = laptop.get_stock_value() + phone.get_stock_value() + shirt.get_stock_value()
+print(f"Total inventory value: ${total_value:.2f}")
