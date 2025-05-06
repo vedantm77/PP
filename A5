@@ -1,0 +1,27 @@
+class Food:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class Fruit(Food):
+    def get_category(self):
+        return "Fruit"
+
+class Vegetable(Food):
+    def get_category(self):
+        return "Vegetable"
+
+class Dessert(Food):
+    def get_category(self):
+        return "Dessert"
+
+# Create food items
+banana = Fruit("Banana", 0.75)
+broccoli = Vegetable("Broccoli", 1.25)
+ice_cream = Dessert("Ice Cream", 4.99)
+
+# Test the polymorphism
+foods = [banana, broccoli, ice_cream]
+
+for item in foods:
+    print(f"{item.name}: ${item.price} | Category: {item.get_category()}")
