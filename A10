@@ -1,0 +1,19 @@
+import numpy as np
+from scipy import stats
+# Sample array (you can modify this)
+data = np.array([1, 2, 4, 2, 5, 3, 2, 4, 5, 6])
+# Calculations using NumPy and SciPy
+mean = np.mean(data)
+std_dev = np.std(data)
+mode = stats.mode(data, keepdims=True)
+median = np.median(data)
+minimum = np.min(data)
+maximum = np.max(data)
+# Displaying the results
+print(f"Data: {data}")
+print(f"Mean: {mean}")
+print(f"Standard Deviation: {std_dev}")
+print(f"Mode: {mode.mode[0]} (Count: {mode.count[0]})")
+print(f"Median: {median}")
+print(f"Minimum: {minimum}")
+print(f"Maximum: {maximum}")
