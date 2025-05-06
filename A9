@@ -1,0 +1,14 @@
+import pandas as pd
+employee_data={"Name" :["Vedant" , "Riya" , "Yash"] , "Age":["18","20"
+,"19"],"Gender":["Male","Female","Male"],"Salary":["500000","600000","400000"]}
+df=pd.DataFrame(employee_data)
+print("Employee dataframe")
+print(df)
+max_salary=df["Salary"].max()
+max_salary_record=df[df["Salary"]==max_salary]
+print("\nRecord with maximum salary")
+print(max_salary_record)
+min_salary=df["Salary"].min()
+min_salary_record=df[df["Salary"]==min_salary]
+print("\nRecord with minimum Salary:")
+print(min_salary_record)
