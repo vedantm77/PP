@@ -1,0 +1,18 @@
+def get_number(prompt):
+    value = input(prompt)
+    try:
+        # Try converting to float (works for both int and float inputs)
+        return float(value)
+    except ValueError:
+        raise TypeError("Input must be a number.")
+
+try:
+    num1 = get_number("Enter the first number: ")
+    num2 = get_number("Enter the second number: ")
+
+    # Example operation: addition
+    result = num1 + num2
+    print(f"The sum of {num1} and {num2} is {result}.")
+
+except TypeError as te:
+    print(f"TypeError: {te}")
