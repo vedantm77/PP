@@ -1,0 +1,39 @@
+def binary_search(sorted_list, target):
+    """
+    Performs binary search on a sorted list to find the target element.
+    Returns the index of the target if found, otherwise returns -1.
+    """
+    low = 0
+    high = len(sorted_list) - 1
+
+    while low <= high:
+        mid = (low + high) // 2  # Find middle index
+        guess = sorted_list[mid]  # Get middle element
+
+        if guess == target:
+            return mid  # Target found!
+        if guess < target:
+            low = mid + 1  # Search right half
+        else:
+            high = mid - 1  # Search left half
+
+    return -1  # Target not found
+
+# Pre-sorted list (must be sorted for binary search to work)
+numbers = [2, 5, 7, 12, 18, 25, 30, 38, 45]
+
+# Get user input
+try:
+    target = int(input("Enter a number to search: "))
+    
+    # Perform search
+    result = binary_search(numbers, target)
+
+    # Display results
+    if result != -1:
+        print(f"Found {target} at index {result}")
+    else:
+        print(f"{target} not found in the list")
+
+except ValueError:
+    print("Please enter a valid number!")
