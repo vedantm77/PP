@@ -1,0 +1,19 @@
+class Person:
+    def __init__(self, age, gender):
+        self.age = age
+        self.gender = gender
+
+class Teacher(Person):
+    def teaches(self):
+        print("I'm a teacher")
+
+class Student(Person):
+    def studies(self):
+        print("I study")
+
+# Example usage
+math_teacher = Teacher(42, 'Male')
+math_teacher.teaches()  # Output: I'm a teacher
+
+cs_student = Student(19, 'Non-binary')
+cs_student.studies()    # Output: I study
